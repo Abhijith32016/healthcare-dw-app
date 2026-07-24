@@ -8,28 +8,27 @@ Pipeline Overview
 Raw Epidemiological CSVs (185K+ rows COVID-19 + 120K+ rows US Infectious Disease)
         │
         ▼
-┌─────────────────────┐
+
 │  PySpark ETL         │  Distributed windowed aggregation, rolling 7/14-day
 │  (Google Colab)      │  averages, lag features, z-score anomaly detection
-└─────────┬───────────┘
+
           │  Partitioned Parquet
           ▼
-┌─────────────────────┐
+
 │  Azure Data Lake     │  Hierarchical namespace storage (ADLS Gen2)
-│  Storage Gen2        │  Lakehouse pattern — external views over Parquet
-└─────────┬───────────┘  via Azure Synapse serverless SQL (OPENROWSET)
+│  Storage Gen2        │  Lakehouse pattern — external views over Parquet via Azure Synapse serverless SQL (OPENROWSET)
           │
           ▼
-┌─────────────────────┐
+
 │  ML & Decision Layer │  ARIMA forecasting · Random Forest · XGBoost
 │                      │  TrOCR clinical-note fusion · PuLP LP optimiser
-└─────────┬───────────┘
+
           │
           ▼
-┌─────────────────────┐
+
 │  Delivery Layer      │  Power BI executive dashboard (DAX measures)
 │                      │  Streamlit live web app (interactive prediction)
-└─────────────────────┘
+
 What This Project Demonstrates
 Big data engineering: Distributed ETL with PySpark window functions across 300K+ combined rows — rolling aggregations, lag features, and z-score outbreak detection computed at scale, output as partitioned Parquet (not CSV).
 Cloud data warehousing: Designed, deployed, and adapted a cloud warehouse architecture mid-build when a genuine platform constraint was discovered (Azure Synapse serverless pools don't support CREATE TABLE / INSERT INTO) — resolved by redesigning as an external-view lakehouse over Data Lake Parquet via OPENROWSET. The resulting architecture is more cost-efficient than the original plan.
