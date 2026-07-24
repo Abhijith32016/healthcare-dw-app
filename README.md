@@ -20,4 +20,4 @@ streamlit run app.py
 
 ## Live app
 
-Deployed at: `https://<your-app-name>.streamlit.app` (fill in after deployment)
+Deployed at:(https://healthcare-outbreak-dw.streamlit.app)
