@@ -221,7 +221,7 @@ with tab3:
                 f'<div class="model-card">'
                 f'<div class="model-card-title">Early-Warning Assessment</div>'
                 f'<div class="model-card-sub">Tuned to catch more true outbreaks, at the cost of more false alarms</div>'
-                f'<h2 style="margin-top:10px; margin-bottom:0;">{rf_prob:.0%}</h2>'
+                f'<h2 style="margin-top:10px; margin-bottom:0; color:#14213D;">{rf_prob:.0%}</h2>'
                 f'</div>', unsafe_allow_html=True
             )
 
@@ -230,7 +230,7 @@ with tab3:
                 f'<div class="model-card">'
                 f'<div class="model-card-title">High-Confidence Assessment</div>'
                 f'<div class="model-card-sub">Tuned to minimize false alarms, at the cost of missing some true outbreaks</div>'
-                f'<h2 style="margin-top:10px; margin-bottom:0;">{xgb_prob:.0%}</h2>'
+                f'<h2 style="margin-top:10px; margin-bottom:0; color:#14213D;">{xgb_prob:.0%}</h2>'
                 f'</div>', unsafe_allow_html=True
             )
 
